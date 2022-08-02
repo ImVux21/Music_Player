@@ -107,9 +107,8 @@ const app = {
         this.seek();
         // handle loop button
         this.handleRepeatBtn();
-
+        // handle random button
         this.handleRandomBtn();
-        
         // previous playback
         this.handelPreviousBtn();
         // next playbcak
@@ -133,9 +132,11 @@ const app = {
         const randomBtn = $('.btn-random');
 
         randomBtn.onclick = function () {
+            // if isRandom == true -> false, otherwise
             _this.isRandom = !_this.isRandom;
-
-            this.classList.toggle('active', _this.isRandom);
+            
+            // when clicking randomBtn -> add active
+            this.classList.toggle('active'); 
         };
     },
 
@@ -311,6 +312,7 @@ const app = {
 
     autoNextSong() {
         const _this = this;
+        // when a song ended
         audio.onended = function () {
             if(_this.isRandom) {
                 _this.playRandomSong();
