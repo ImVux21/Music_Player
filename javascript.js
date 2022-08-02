@@ -9,37 +9,8 @@ const player = $('.player');
 const app = { 
     currentIndex: 0,
     isPlaying: false,
+    isRandom: false,
     songs: [
-        {
-            name: 'Death Bed',
-            singer: 'Powfu ft beabadoobee',
-            path: './songs/death_bed.mp3',
-            image: './img/death_bed.jpg'
-        },
-        {
-            name: 'Just a dream',
-            singer: 'Nelly',
-            path: './songs/Just_A_Dream.mp3',
-            image: './img/Just_a_dream.jpg'
-        },
-        {
-            name: 'Until i found you',
-            singer: 'Stephen Sanchez ft Em Beihold',
-            path: './songs/until_i_found_u.mp3',
-            image: './img/Until_I_found_you.jpg'
-        },
-        {
-            name: 'vaicaunoi',
-            singer: 'GREY D x TLINH',
-            path: './songs/vaicaunoicokhiennguoithaydoi.mp3',
-            image: './img/vai_cau_noi.jpg'
-        },
-        {
-            name: 'Yêu em qua dòng tin nhắn',
-            singer: 'Ngơ ft Nân',
-            path: './songs/yeuemquadongtinnhan.mp3',
-            image: './img/yeu_em_qua_dong_tin_nhan.jpg'
-        },
         {
             name: 'Death Bed',
             singer: 'Powfu ft beabadoobee',
@@ -128,15 +99,94 @@ const app = {
         const cdThumbAnimate = this.rotateCd();
         cdThumbAnimate.pause();
 
-        // handel play button
+        // handle play button
         this.handlePlayBtn(cdThumbAnimate);
         // update current time in progress bar
         this.updateCurrentTime();
         // handle seek action
         this.seek();
         // handle loop button
-        this.enableLoop();
+        this.handleRepeatBtn();
+
+        this.handleRandomBtn();
         
+        // previous playback
+        this.handelPreviousBtn();
+        // next playbcak
+        this.handleNextBtn();     
+    },
+
+    playRandomSong() {
+        const _this = this;
+        
+        let randomIndex;
+        do {
+            randomIndex = Math.floor(Math.random() * this.songs.length);           
+        } while(this.currentIndex === randomIndex);
+        
+        this.currentIndex = randomIndex;
+        this.loadCurrentSongToDashBoard(); 
+    },
+    
+    handleRandomBtn() {
+        const _this = this;
+        const randomBtn = $('.btn-random');
+
+        randomBtn.onclick = function () {
+            _this.isRandom = !_this.isRandom;
+
+            this.classList.toggle('active', _this.isRandom);
+        };
+    },
+
+    handelPreviousBtn() {
+        const _this = this;
+        const prevBtn = $('.btn-prev');
+        
+        prevBtn.onclick = function () {
+            if (_this.isRandom) {
+                _this.playRandomSong();
+            } else {
+                _this.updatePrevSong();             
+            }
+            audio.play();
+        };
+    },
+
+    updatePrevSong() {
+        this.currentIndex--;
+        // if reaching last index, current index will be at beginning of index
+        if (this.currentIndex < 0) {
+            this.currentIndex = this.songs.length - 1;
+        }
+        // load song to dashboard
+        this.loadCurrentSongToDashBoard();
+    },
+
+    handleNextBtn() {
+        const _this = this;
+        const nextBtn = $('.btn-next');
+        
+        nextBtn.onclick = function () {
+            if (_this.isRandom) {
+                _this.playRandomSong();
+            } else {
+                _this.updateNextSong();
+            }
+
+            // audio is played when clicking next button
+            audio.play();
+        };
+    },
+
+    updateNextSong() {
+            this.currentIndex++;
+            // if reaching last index, current index will be at beginning of index
+            if (this.currentIndex > this.songs.length - 1) {
+                this.currentIndex = 0;
+            }
+            // load song to dashboard
+            this.loadCurrentSongToDashBoard();
     },
 
     handlePlayBtn(cdThumbAnimate) {
@@ -227,7 +277,7 @@ const app = {
         return arr[0] + ':' + arr[1];
     },
 
-    enableLoop() {
+    handleRepeatBtn() {
         const loopBtn = $('.btn-repeat');
 
         loopBtn.onclick = function () {
@@ -237,7 +287,7 @@ const app = {
                 audio.loop = false;
             }
 
-            this.classList.toggle('hightlight');
+            this.classList.toggle('active');
         };
 
     },
@@ -259,6 +309,19 @@ const app = {
         });
     },
 
+    autoNextSong() {
+        const _this = this;
+        audio.onended = function () {
+            if(_this.isRandom) {
+                _this.playRandomSong();
+            } else {
+                _this.updateNextSong();
+            }
+            audio.play();
+        }
+        
+    },
+
     start() {
         // render playlist songs to htmls
         this.renderPlaylistSongs();
@@ -268,6 +331,8 @@ const app = {
         this.loadCurrentSongToDashBoard();
         // handle Play button
         this.handleAudioPlayerBar();
+        // automatically next song when ending song
+        this.autoNextSong();
     }
 };
 

@@ -139,10 +139,6 @@ i, input {
     cursor: pointer;
 }
 
-.hightlight i {
-    color: var(--primary-color);
-}
-
 /* PLAYLIST */
 .playlist {
     margin-top: 440px;
