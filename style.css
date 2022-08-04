@@ -150,6 +150,7 @@ i, input {
 }
 
 .song {
+    max-height: 60px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -189,15 +190,13 @@ i, input {
     height: 44px;
     border-radius: 50%;
     background-size: cover;
-    margin: 0 8px;
 }
 
 .song .body {
-    white-space: nowrap; 
-    overflow: hidden;
-    text-overflow: ellipsis;
     flex: 1;
     padding: 0 16px;
+    max-width: 270px;
+    white-space: nowrap;
 }
 
 .song .title {
@@ -232,10 +231,11 @@ i, input {
 }
 
 .small-dashboard .current-song {
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    max-height: 70px;
 }
 
 .small-dashboard .progress {
@@ -275,8 +275,6 @@ i, input {
 
 .current-song .body {
     max-width: 280px;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .current-song .player-bar {
@@ -284,3 +282,28 @@ i, input {
     gap: 30px;
     align-items: center;
 }
+
+@media screen and (max-width: 400px) {
+    header h2 {
+        max-width: 280px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+
+    .song .title, 
+    .song .author {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+
+    .current-song .body {
+        max-width: 190px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .current-song .player-bar {
+        gap: 15px;
+    }
+  }

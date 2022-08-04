@@ -6,6 +6,7 @@ const player = $('.player');
 const cdThumb = $('.song-resource .thumb');
 const progressBar = $('#progress');
 const progressBar2nd = $('.dashboard .progress');
+const audio = $('#audio');
 
 const app = { 
     currentIndex: 0,
@@ -44,16 +45,16 @@ const app = {
             image: './img/yeu_em_qua_dong_tin_nhan.jpg'
         },
         {
-            name: 'Bao tiền một mớ bình yên',
-            singer: '14 Casper & Bon',
-            path: './songs/bao-tien-mot-mo-binh-yen.mp3',
-            image: './img/bao-tien-mot-mo-binh-yen.jpg'
-        },
-        {
             name: 'Chạy Ngay Đi',
             singer: 'Sơn Tùng MTP',
             path: './songs/chayngaydi.mp3',
             image: './img/chay-ngay-di.jpg'
+        },
+        {
+            name: 'Bao tiền một mớ bình yên',
+            singer: '14 Casper & Bon',
+            path: './songs/bao_tien_mot_mo_binh_yen.mp3',
+            image: './img/bao-tien-mot-mo-binh-yen.jpg'
         },
         {
             name: 'Chrismas Tree',
@@ -91,8 +92,12 @@ const app = {
                 <div class="song" id="${index}">
                     <div class="thumb" style="background-image: url('${song.image}')"></div>
                     <div class="body">
-                        <h3 class="title">${song.name}</h3>
-                        <p class="author">${song.singer}</p>
+                        <div class="body-items_title">
+                            <h3 class="title">${song.name}</h3>
+                        </div>
+                        <div class="body-items_author">
+                            <p class="author">${song.singer}</p>
+                        </div>
                     </div>
                 </div>
             `;
