@@ -12,7 +12,6 @@ const app = {
     isPlaying: false,
     isRandom: false,
     playedSongs: [],
-    isMiniDashboard: true,
     songs: [
         {
             name: 'Death Bed',
