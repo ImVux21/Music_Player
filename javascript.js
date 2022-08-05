@@ -480,6 +480,46 @@ const app = {
         }
     },
 
+    handleSlideText() {
+        const _this = this;
+        const titles = $$('.title');
+        const authors = $$('.author');
+
+        titles.forEach(element => {
+            if (_this.isTextOverflow(element)) {
+                _this.slideTextOverflow(element);
+            }
+        });
+        
+        authors.forEach(element => {
+            if (_this.isTextOverflow(element)) {
+                _this.slideTextOverflow(element);
+            }
+        });
+    },
+
+    slideTextOverflow(element) {
+        const slideText = [
+            {transform: 'translateX(0%)'},
+            {transform: 'translateX(calc(-100% + 50px))'},
+            {transform: 'translateX(5px)'},
+            {transform: 'translateX(0%)'}
+        ];
+
+        const timing = {
+            duration: 30000,
+            easing: 'linear',
+            delay: 2000,
+            iterations: Infinity
+        }
+
+        return element.animate(slideText, timing);
+    },
+
+    isTextOverflow(element) {
+        return element.scrollWidth > element.clientWidth;    
+    },
+
     run() {
         this.renderPlaylistSongs();
         this.renderMainDashboard();
@@ -489,6 +529,7 @@ const app = {
         this.turnOnMainDashboard();
         this.turnOffMainDashboard();
         this.selectSong();
+        this.handleSlideText();
     }
 }
 

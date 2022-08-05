@@ -195,7 +195,7 @@ i, input {
 .song .body {
     flex: 1;
     padding: 0 16px;
-    max-width: 270px;
+    max-width: 400px;
     white-space: nowrap;
 }
 
@@ -213,6 +213,11 @@ i, input {
     padding: 16px 8px;
     color: #999;
     font-size: 18px;
+}
+
+.body-items_title, .body-items_author {
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 /* SMALL DASHBOARD */
@@ -291,13 +296,6 @@ i, input {
         text-overflow: clip;
     }
 
-    .song .title, 
-    .song .author {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: clip;
-    }
-
     .current-song .body {
         max-width: 190px;
         white-space: nowrap;
@@ -306,4 +304,14 @@ i, input {
     .current-song .player-bar {
         gap: 15px;
     }
+
+    .song .body {
+        max-width: 270px;
+    }
+
+    .body-items_title, .body-items_author {
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    
   }
