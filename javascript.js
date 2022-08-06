@@ -4,7 +4,7 @@ const $$ = document.querySelectorAll.bind(document);
 const playlist = $('.playlist');
 const player = $('.player');
 const cdThumb = $('.song-resource .thumb');
-const progressBar = $('#progress');
+const progressBar = $('.small-dashboard #progress');
 const progressBar2nd = $('.dashboard .progress');
 const audio = $('#audio');
 
