@@ -4,7 +4,7 @@ const $$ = document.querySelectorAll.bind(document);
 const playlist = $('.playlist');
 const player = $('.player');
 const cdThumb = $('.song-resource .thumb');
-const progressBar = $('.small-dashboard #progress');
+const progressBar = $('.small-dashboard .progress');
 const progressBar2nd = $('.dashboard .progress');
 const audio = $('#audio');
 
@@ -268,7 +268,7 @@ const app = {
                 const progressTime = Math.floor(this.currentTime / this.duration * 100);
 
                 // update value property of input tags, wheel runs according to progressTime on progress bar
-                progressBar2nd.value = progressTime;
+                _this.runSliderThumb();
 
                 // convert time to minutes and then to string
                 const currentTimeString = String((this.currentTime / 60).toFixed(2));
