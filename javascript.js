@@ -131,7 +131,7 @@ const app = {
 
     renderBothDashboards() {
         this.renderSmallDashboard();
-        this,this.renderMainDashboard();
+        this.renderMainDashboard();
     },
 
     handlePlayBackBar() {
