@@ -142,7 +142,6 @@ const app = {
         this.handlePlayBtn(cdThumbAnimate);
         this.handleBackBtn();
         this.handleNextBtn();
-        this.runSliderThumb();
         this.seek();
         this.updateCurrentTimeOnProgress();
         this.handleRandomBtn();
@@ -268,7 +267,8 @@ const app = {
                 const progressTime = Math.floor(this.currentTime / this.duration * 100);
 
                 // update value property of input tags, wheel runs according to progressTime on progress bar
-                _this.runSliderThumb();
+                progressBar.value = progressTime;
+                progressBar2nd.value = progressTime;
 
                 // convert time to minutes and then to string
                 const currentTimeString = String((this.currentTime / 60).toFixed(2));
@@ -284,19 +284,6 @@ const app = {
     splitTime(timeString) {
         const arr = timeString.split('.'); // split time to 2 parts: a whole, a decimal and add : at between
         return arr[0] + ':' + arr[1];
-    },
-
-    runSliderThumb() {
-        const _this = this;
-
-        audio.ontimeupdate = function() {
-            // audio.duration is duration(thoi luong) of song
-            const progressTime = Math.floor(this.currentTime / this.duration * 100);
-
-            // update value property of input tags, wheel runs according to progressTime on progress bar
-            progressBar.value = progressTime;
-            progressBar2nd.value = progressTime;
-        }
     },
 
     autoNextSong() {
