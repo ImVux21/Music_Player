@@ -289,18 +289,29 @@ i, input {
     align-items: center;
 }
 
+header h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+.current-song .body {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.body-items_title, .body-items_author {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 @media screen and (max-width: 420px) {
     header h2 {
         max-width: 280px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: clip;
     }
 
     .current-song .body {
         max-width: 190px;
-        white-space: nowrap;
-        overflow: hidden;
     }
     .current-song .player-bar {
         gap: 15px;
@@ -308,11 +319,6 @@ i, input {
 
     .song .body {
         max-width: 270px;
-    }
-
-    .body-items_title, .body-items_author {
-        overflow: hidden;
-        white-space: nowrap;
     }
     
   }
