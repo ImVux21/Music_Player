@@ -80,6 +80,24 @@ const app = {
             path: './songs/saveyourtear.mp3',
             image: './img/save-your-tear.jpg'
         },
+        {
+            name: 'Một mình cô đơn',
+            singer: 'Sơn Tùng MTP',
+            path: './songs/motminhcodon.mp3',
+            image: './img/motminhcodon.jpg'
+        },
+        {
+            name: 'Never be the same',
+            singer: 'Camila Cabello',
+            path: './songs/neverbethesame.mp3',
+            image: './img/neverbethesame.jpg'
+        },
+        {
+            name: 'Hạnh phúc mới',
+            singer: 'Sơn Tùng MTP',
+            path: './songs/hanhphucmoi.mp3',
+            image: './img/hanhphucmoi.jpg'
+        },
     ],
 
     getCurrentSong() {

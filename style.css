@@ -7,6 +7,7 @@
     padding: 0;
     margin: 0;
     box-sizing: inherit;
+    transition: all .35s ease-in-out;
 }
 
 body {
@@ -163,7 +164,7 @@ i, input {
 
 .song:hover {
     background-color: #ec1f567e;
-    transition: all .35s ease-in-out;
+    transform: scale(1.05);
 }
 
 .song:hover .title, .song:hover .author {
@@ -172,7 +173,7 @@ i, input {
 
 .song.active {
     background-color: var(--primary-color);
-    transition: all .35s ease-in-out;
+    transform: scale(1.05);
 }
 
 .song:active {
