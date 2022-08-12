@@ -289,7 +289,7 @@ i, input {
     align-items: center;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
     header h2 {
         max-width: 280px;
         white-space: nowrap;
