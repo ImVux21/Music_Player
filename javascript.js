@@ -496,6 +496,7 @@ const app = {
             if(!e.target.closest('.player-bar')) {
                 dashboard.style.transform = 'translateY(0)';
                 dashboard.style.opacity = '1';
+                body.style.overflow = 'hidden';
             }
         }
     },
@@ -508,6 +509,7 @@ const app = {
         closeBtn.onclick = function() {
             dashboard.style.transform = 'translateY(100%)';
             dashboard.style.opacity = '0';
+            body.style.overflow = 'visible';
         }
     },
 
