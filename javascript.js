@@ -98,6 +98,30 @@ const app = {
             path: './songs/hanhphucmoi.mp3',
             image: './img/hanhphucmoi.jpg'
         },
+        {
+            name: 'We like to party',
+            singer: 'Bigbang',
+            path: './songs/weliketoparty.mp3',
+            image: './img/weliketoparty.jpg'
+        },
+        {
+            name: 'Untitled',
+            singer: 'G-Dragon',
+            path: './songs/untitled.mp3',
+            image: './img/untitled.jpg'
+        },
+        {
+            name: 'Nhạc Lofi Chill Không Lời Thư Giãn Nhẹ Nhàng',
+            singer: 'Study with me',
+            path: './songs/lofichill.mp3',
+            image: './img/lofichill.jpg'
+        },
+        {
+            name: 'Những Bản Lofi Cực Chill Của Sơn Tùng MTP Hay Nhất',
+            singer: 'Sơn Tùng MTP',
+            path: './songs/playlistmtpchill.mp3',
+            image: './img/playlistmtpchill.jpg'
+        },
     ],
 
     getCurrentSong() {
@@ -288,7 +312,7 @@ const app = {
                 progressBar.value = progressTime;
                 progressBar2nd.value = progressTime;
 
-                // convert time to minutes and then to string
+                // convert time to minutes and then, to string
                 const currentTimeString = String((this.currentTime / 60).toFixed(2));
                 const restTimeString = String(((this.duration - this.currentTime) / 60).toFixed(2));
 
@@ -451,6 +475,8 @@ const app = {
     selectSong() {
         const _this = this;
         playlist.onclick = function (e) {
+            const smallDashboard = $('.small-dashboard');
+            smallDashboard.style.transform = 'translateY(0)';
             const songNode = e.target.closest('.song:not(.active)');
             if (e.target.closest('.song:not(.active)')) {
                 _this.removeHighlightSong(_this.currentIndex);
@@ -468,8 +494,8 @@ const app = {
 
         currentSong.onclick = function(e) {
             if(!e.target.closest('.player-bar')) {
-                dashboard.style.display = 'grid';
-                body.style.overflow = 'hidden';
+                dashboard.style.transform = 'translateY(0)';
+                dashboard.style.opacity = '1';
             }
         }
     },
@@ -480,8 +506,8 @@ const app = {
         const body = $('body');
 
         closeBtn.onclick = function() {
-            dashboard.style.display = 'none';
-            body.style.overflow = 'visible';
+            dashboard.style.transform = 'translateY(100%)';
+            dashboard.style.opacity = '0';
         }
     },
 
@@ -527,8 +553,6 @@ const app = {
 
     run() {
         this.renderPlaylistSongs();
-        this.renderMainDashboard();
-        this.renderSmallDashboard();
         this.handlePlayBackBar();
         this.autoNextSong();
         this.turnOnMainDashboard();

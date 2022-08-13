@@ -7,7 +7,7 @@
     padding: 0;
     margin: 0;
     box-sizing: inherit;
-    transition: all .35s ease-in-out;
+    transition: all .4s ease-in;
 }
 
 body {
@@ -38,7 +38,7 @@ html {
 }
 
 .dashboard {
-    display: none;
+    display: grid;
     grid-template-rows: 1fr 3fr 8fr 4fr 1fr 1fr;
     position: fixed;
     top: 0;
@@ -48,8 +48,9 @@ html {
     padding: 30px;
     background-color: #fff;
     border-bottom: 1px solid #ebebeb;
-    transition: all .35s ease-in-out;
-
+    transform: translateY(100%);
+    opacity: 0;
+    transition: .35s linear;
 }
 
 /* HEADER */
@@ -64,6 +65,7 @@ header h4 {
 }
 
 header h2 {
+    margin: auto;
     color: var(--text-color);
     font-size: 26px;
 }
@@ -234,6 +236,7 @@ i, input {
     bottom: 0;
     border-radius: 5px 5px 0 0;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    transform: translateY(100%);
 }
 
 .small-dashboard .current-song {
@@ -281,6 +284,8 @@ i, input {
 
 .current-song .body {
     max-width: 280px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .current-song .player-bar {
@@ -289,25 +294,12 @@ i, input {
     align-items: center;
 }
 
-header h2 {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: clip;
-}
-
-.current-song .body {
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.body-items_title, .body-items_author {
-    overflow: hidden;
-    white-space: nowrap;
-}
-
 @media screen and (max-width: 420px) {
     header h2 {
         max-width: 280px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
     }
 
     .current-song .body {
@@ -320,5 +312,4 @@ header h2 {
     .song .body {
         max-width: 270px;
     }
-    
   }
