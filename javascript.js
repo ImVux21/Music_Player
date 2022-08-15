@@ -332,8 +332,11 @@ const app = {
         const _this = this;
         // when a song ended
         audio.onended = function () {
-            
-            _this.updateNextSong();
+            if (_this.isRandom) {
+                _this.playRandomSong();
+            } else {
+                _this.updateNextSong();
+            }
             audio.play();
         }
 
