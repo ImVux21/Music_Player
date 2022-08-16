@@ -17,7 +17,7 @@ const app = {
         {
             name: 'Young dumb and broke',
             singer: 'Khalid',
-            path: './song/youngdumbbroke.mp3',
+            path: './songs/youngdumbbroke.mp3',
             image: '.img/youngdumbbroke.jpg'
         },{
             name: 'Death Bed',
