@@ -15,6 +15,11 @@ const app = {
     playedSongs: [],
     songs: [
         {
+            name: 'Young dumb and broke',
+            singer: 'Khalid',
+            path: './song/youngdumbbroke.mp3',
+            image: '.img/youngdumbbroke.jpg'
+        },{
             name: 'Death Bed',
             singer: 'Powfu ft beabadoobee',
             path: './songs/death_bed.mp3',
