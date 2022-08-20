@@ -117,12 +117,6 @@ const app = {
             image: './img/untitled.jpg'
         },
         {
-            name: 'Nhạc Lofi Chill Không Lời Thư Giãn Nhẹ Nhàng',
-            singer: 'Study with me',
-            path: './songs/lofichill.mp3',
-            image: './img/lofichill.jpg'
-        },
-        {
             name: 'Những Bản Lofi Cực Chill Của Sơn Tùng MTP Hay Nhất',
             singer: 'Sơn Tùng MTP',
             path: './songs/playlistmtpchill.mp3',
@@ -408,11 +402,11 @@ const app = {
         this.removeHighlightSong(this.currentIndex);
 
         this.currentIndex--;
-
         // if reaching last index, current index will be at beginning of index
         if (this.currentIndex < 0) {
             this.currentIndex = this.songs.length - 1;
         }
+
         // load song to dashboard
         this.renderBothDashboards();
 
