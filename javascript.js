@@ -122,6 +122,31 @@ const app = {
             path: './songs/playlistmtpchill.mp3',
             image: './img/playlistmtpchill.jpg'
         },
+        {
+            name: 'Zack Tabudlo - Pano (Lyric Video)',
+            singer: 'Zack Tabudlo',
+            path: './songs/Pano.mp3',
+            image: './img/Pano.jpg'
+        },
+        {
+            name: 'Yêu em kiểu',
+            singer: 'Osad',
+            path: './songs/yeuemkieu.mp3',
+            image: './img/yeuemkieu.jpg'
+        },
+        {
+            name: 'You (demo)',
+            singer: 'msmy-AK49',
+            path: './songs/you.mp3',
+            image: './img/you.jpg'
+        },
+        {
+            name: 'Reeves',
+            singer: 'Manbo (ft. HIEUTHUHAI, HURRYKNG)',
+            path: './songs/Reeves.mp3',
+            image: './img/reeves.jpg'
+        },
+        
     ],
 
     getCurrentSong() {
