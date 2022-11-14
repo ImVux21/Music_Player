@@ -15,22 +15,10 @@ const app = {
     playedSongs: [],
     songs: [
         {
-            name: 'Young dumb and broke',
-            singer: 'Khalid',
-            path: './songs/youngdumbbroke.mp3',
-            image: './img/youngdumbbroke.jpg'
-        },
-        {
             name: 'Death Bed',
             singer: 'Powfu ft beabadoobee',
             path: './songs/death_bed.mp3',
             image: './img/death_bed.jpg'
-        },
-        {
-            name: 'Just a dream',
-            singer: 'Nelly',
-            path: './songs/Just_A_Dream.mp3',
-            image: './img/Just_a_dream.jpg'
         },
         {
             name: 'Until i found you',
@@ -51,12 +39,6 @@ const app = {
             image: './img/yeu_em_qua_dong_tin_nhan.jpg'
         },
         {
-            name: 'Chạy Ngay Đi',
-            singer: 'Sơn Tùng MTP',
-            path: './songs/chayngaydi.mp3',
-            image: './img/chay-ngay-di.jpg'
-        },
-        {
             name: 'Bao tiền một mớ bình yên',
             singer: '14 Casper & Bon',
             path: './songs/bao_tien_mot_mo_binh_yen.mp3',
@@ -75,12 +57,6 @@ const app = {
             image: './img/eenie-meenie.jpg'
         },
         {
-            name: 'Let Her Go',
-            singer: 'Passenger ( Cover Lost & HoneyFox & Pop Mage )',
-            path: './songs/lethergo.mp3',
-            image: './img/let-her-go.jpg'
-        },
-        {
             name: 'Save Your Tears',
             singer: 'The Weekend',
             path: './songs/saveyourtear.mp3',
@@ -91,12 +67,6 @@ const app = {
             singer: 'Sơn Tùng MTP',
             path: './songs/motminhcodon.mp3',
             image: './img/motminhcodon.jpg'
-        },
-        {
-            name: 'Never be the same',
-            singer: 'Camila Cabello',
-            path: './songs/neverbethesame.mp3',
-            image: './img/neverbethesame.jpg'
         },
         {
             name: 'Hạnh phúc mới',
@@ -115,12 +85,6 @@ const app = {
             singer: 'G-Dragon',
             path: './songs/untitled.mp3',
             image: './img/untitled.jpg'
-        },
-        {
-            name: 'Những Bản Lofi Cực Chill Của Sơn Tùng MTP Hay Nhất',
-            singer: 'Sơn Tùng MTP',
-            path: './songs/playlistmtpchill.mp3',
-            image: './img/playlistmtpchill.jpg'
         },
         {
             name: 'Zack Tabudlo - Pano (Lyric Video)',
