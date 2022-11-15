@@ -282,15 +282,18 @@ const app = {
     },
 
     updateCurrentTimeOnProgress() {
-        const _this = this;
         const ranTime = $('#ran-time');
         const restTime = $('#rest-time');
+        let minutesForCurrentTime = '0';
+        let secondsForCurrentTime = '0';
+        let minutesForRestTime = '0';
+        let secondsForRestTime = '0';
         
-        // render the duration time to html when loading window
-        window.onload = function(){
-            const durationTimeString = String((audio.duration / 60).toFixed(2));
-            restTime.innerText = _this.splitTime(durationTimeString);
-        };
+        // // render the duration time to html when loading window
+        // window.onload = function(){
+        //     const durationTimeString = String((audio.duration / 60).toFixed(2));
+        //     restTime.innerText = _this.splitTime(durationTimeString);
+        // };
 
         audio.ontimeupdate = function() {
             if (this.duration) {
@@ -301,20 +304,25 @@ const app = {
                 progressBar.value = progressTime;
                 progressBar2nd.value = progressTime;
 
-                // convert time to minutes and then, to string
-                const currentTimeString = String((this.currentTime / 60).toFixed(2));
-                const restTimeString = String(((this.duration - this.currentTime) / 60).toFixed(2));
+                // For current time
+                minutesForCurrentTime = Math.floor(this.currentTime / 60);
+                console.log('minutes: ', minutesForCurrentTime);
+                secondsForCurrentTime = Math.floor(this.currentTime % 60);
+                console.log('seconds: ', secondsForCurrentTime);
+
+                // For rest time
+                minutesForRestTime = Math.floor((this.duration - this.currentTime) / 60);
+                secondsForRestTime = Math.floor((this.duration - this.currentTime) % 60);
+
+                // convert time to minutesForCurrentTime and then, to string
+                const currentTimeString = minutesForCurrentTime + ':' + secondsForCurrentTime;
+                const restTimeString = minutesForRestTime + ':' + secondsForRestTime;
 
                 // render time handled time 
-                ranTime.innerText = _this.splitTime(currentTimeString);
-                restTime.innerText = _this.splitTime(restTimeString);
+                ranTime.innerText = currentTimeString;
+                restTime.innerText = restTimeString;
             }
         };
-    },
-
-    splitTime(timeString) {
-        const arr = timeString.split('.'); // split time to 2 parts: a whole, a decimal and add : at between
-        return arr[0] + ':' + arr[1];
     },
 
     autoNextSong() {
