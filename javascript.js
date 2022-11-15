@@ -284,10 +284,10 @@ const app = {
     updateCurrentTimeOnProgress() {
         const ranTime = $('#ran-time');
         const restTime = $('#rest-time');
-        let minutesForCurrentTime = '0';
-        let secondsForCurrentTime = '0';
-        let minutesForRestTime = '0';
-        let secondsForRestTime = '0';
+        let minutesForCurrentTime;
+        let secondsForCurrentTime;
+        let minutesForRestTime;
+        let secondsForRestTime;
         
         // // render the duration time to html when loading window
         // window.onload = function(){
@@ -305,14 +305,12 @@ const app = {
                 progressBar2nd.value = progressTime;
 
                 // For current time
-                minutesForCurrentTime = Math.floor(this.currentTime / 60);
-                console.log('minutes: ', minutesForCurrentTime);
-                secondsForCurrentTime = Math.floor(this.currentTime % 60);
-                console.log('seconds: ', secondsForCurrentTime);
+                minutesForCurrentTime = minutesForCurrentTime >= 9 ? Math.floor(this.currentTime / 60) : '0' + Math.floor(this.currentTime / 60);
+                secondsForCurrentTime = secondsForCurrentTime >= 9 ? Math.floor(this.currentTime % 60) : '0' + Math.floor(this.currentTime % 60);
 
                 // For rest time
-                minutesForRestTime = Math.floor((this.duration - this.currentTime) / 60);
-                secondsForRestTime = Math.floor((this.duration - this.currentTime) % 60);
+                minutesForRestTime = minutesForRestTime >= 9 ? Math.floor((this.duration - this.currentTime) / 60) : '0' + Math.floor((this.duration - this.currentTime) / 60);
+                secondsForRestTime = secondsForRestTime >= 9 ? Math.floor((this.duration - this.currentTime) % 60) : '0' + Math.floor((this.duration - this.currentTime) % 60);
 
                 // convert time to minutesForCurrentTime and then, to string
                 const currentTimeString = minutesForCurrentTime + ':' + secondsForCurrentTime;
